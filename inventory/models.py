@@ -17,4 +17,7 @@ class PIR(models.Model):
     count = models.IntegerField()
     price = models.IntegerField()
 class Inventory(models.Model):
+    name = models.CharField(max_length = 255)
     products = models.ManyToManyField(PIR,related_name="Inventory");
+    def __str__(self):
+        return self.name
