@@ -13,6 +13,7 @@ class Product(models.Model):
     price = models.IntegerField()
     def __str__(self):
         return self.name
+    
 class PIR(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name="Origin")
     count = models.IntegerField()

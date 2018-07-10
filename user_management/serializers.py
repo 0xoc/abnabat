@@ -7,15 +7,18 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ['username','password','first_name','last_name']
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
+    user = UserSerializer()
     class Meta:
         model = Person
         fields = ['user']
 
 class DeliverSerializer(serializers.HyperlinkedModelSerializer):
+    user = PersonSerializer()
     class Meta:
         model = Deliver
         fields = ['user','status']
 class ClientSerializer(serializers.HyperlinkedModelSerializer):
+    user = PersonSerializer()
     class Meta:
         model = Client
         fields = ['user']
