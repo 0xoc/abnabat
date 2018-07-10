@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'delivery.apps.DeliveryConfig',
     'payment.apps.PaymentConfig',
     'retailer.apps.RetailerConfig',
-    'user_management.apps.UserManagementConfig'
+    'user_management',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

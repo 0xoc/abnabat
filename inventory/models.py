@@ -10,12 +10,12 @@ class Field(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length = 255)
     fields = models.ManyToManyField(Field) #:)
+    price = models.IntegerField()
     def __str__(self):
         return self.name
 class PIR(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name="Origin")
     count = models.IntegerField()
-    price = models.IntegerField()
 class Inventory(models.Model):
     name = models.CharField(max_length = 255)
     products = models.ManyToManyField(PIR,related_name="Inventory");
