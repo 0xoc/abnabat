@@ -1,3 +1,16 @@
+#settings
+abnabat/settings.py
+
+#media
+media
+
+#IDE files
+.vscode
+.idea
+*.sublime-workspace
+*.sublime-project
+
+# github python defaults
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
