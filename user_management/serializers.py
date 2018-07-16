@@ -15,8 +15,8 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 class DeliverSerializer(serializers.HyperlinkedModelSerializer):
     user = PersonSerializer()
     class Meta:
-        model = Deliver
-        fields = ['user','status']
+        model = Person
+        fields = ['user']
 class ClientSerializer(serializers.HyperlinkedModelSerializer):
     user = PersonSerializer()
     class Meta:

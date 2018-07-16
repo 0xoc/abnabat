@@ -13,7 +13,7 @@ class DeliveryPackage(models.Model):
     client = models.ForeignKey(user_management.models.Client,on_delete=models.CASCADE)
 
 class Deliver(models.Model):
-    deliver = models.ForeignKey(user_management.models.Deliver,on_delete=models.CASCADE)
+    deliver = models.ForeignKey(user_management.models.Person,on_delete=models.CASCADE)
     deliveryPackages = models.ManyToManyField(DeliveryPackage)
 
 class Delivery(models.Model):

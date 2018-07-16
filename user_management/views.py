@@ -13,7 +13,7 @@ class PersonViewSet(viewsets.ModelViewSet):
     serializer_class = PersonSerializer
 
 class DeliverViewSet(viewsets.ModelViewSet):
-    queryset = Deliver.objects.all()
+    queryset = Person.objects.all()
     serializer_class = DeliverSerializer
 
 class ClientViewSet(viewsets.ModelViewSet):

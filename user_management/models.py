@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Person(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE);
-   #TODO: many to many to DInfo
+    deliverInfos = models.ManyToManyField("DeliverInfo",null=True)
     def __str__(self):
         return str(self.user)
 
