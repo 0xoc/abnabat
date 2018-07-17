@@ -4,13 +4,13 @@ from django.contrib.auth.models import User
 
 class Person(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE);
+    deliverInfos = models.ManyToManyField("DeliverInfo",null=True)
     def __str__(self):
         return str(self.user)
 
-class Deliver(models.Model):
-    user = models.ForeignKey(Person,on_delete=models.CASCADE);
-    STATE = [('FR','FREE'),('OF','OFF'),('ON','ON DUTY')]
-    status = models.CharField(max_length=10,choices=STATE,default='FR')
+class DeliverInfo(models.Model):
+    startDate = models.DateField()
+    endDate = models.DateField(null = True, blank = True)
     def __str__(self):
         return str(self.user)
 

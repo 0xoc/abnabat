@@ -4,7 +4,7 @@ class FieldSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Field
         fields = ['key','value','field_type']
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     fields = FieldSerializer(many=True)
     class Meta:
         model = Product
