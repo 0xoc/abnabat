@@ -1,6 +1,9 @@
 from django.db import models
 import os
 
+from shop.models import Product
+
+
 class PIR(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name="Origin")
     count = models.IntegerField()

@@ -9,7 +9,7 @@ class ProductMeta(models.Model):
     def __str__(self):
         return self.key + "->" + self.value
 
-class ImageField(models.Model):
+class ProductImageMeta(models.Model):
     img = models.ImageField(upload_to="%y/%m/%d/%s")
 
     def __str__(self):

@@ -1,17 +1,7 @@
 from rest_framework import viewsets
-from .models import *
-from .serializers import *
-# Create your views here.
 
-class FieldViewSet(viewsets.ModelViewSet):
-    queryset = Field.objects.all()
-    serializer_class = FieldSerializer
-class ImageFieldViewSet(viewsets.ModelViewSet):
-    queryset = ImageField.objects.all()
-    serializer_class = ImageFieldSerializer
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+from .serializers import PIRSerializer, PIR, InventorySerializer, Inventory
+
 
 class PIRSViewSet(viewsets.ModelViewSet):
     queryset = PIR.objects.all()
