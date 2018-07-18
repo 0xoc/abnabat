@@ -1,6 +1,8 @@
 from django.db import models
 import os
 
+from taxonomy.models import Term
+
 
 class Product(models.Model):
     name = models.CharField(max_length = 255)
@@ -19,7 +21,7 @@ class ProductMeta(models.Model):
 class ProductImageMeta(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name="Origin")
     img = models.ImageField(upload_to="%y/%m/%d/%s")
-
+    terms = models.ManyToManyField(Term, blank=True)
     def __str__(self):
         return os.path.basename(self.img.name)
 
