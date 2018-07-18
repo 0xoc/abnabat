@@ -4,6 +4,10 @@ class FieldSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Field
         fields = ['key','value','field_type']
+class ImageFieldSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ImageField
+        fields = ['id','img']
 class ProductSerializer(serializers.ModelSerializer):
     fields = FieldSerializer(many=True)
     class Meta:

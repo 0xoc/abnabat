@@ -6,7 +6,9 @@ from .serializers import *
 class FieldViewSet(viewsets.ModelViewSet):
     queryset = Field.objects.all()
     serializer_class = FieldSerializer
-
+class ImageFieldViewSet(viewsets.ModelViewSet):
+    queryset = ImageField.objects.all()
+    serializer_class = ImageFieldSerializer
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
