@@ -15,7 +15,7 @@ class ProductImageMetaSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    fields = ProducMetaSerializer(many=True)
+    fields = ProductMetaSerializer(many=True)
 
     class Meta:
         model = Product
