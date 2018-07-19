@@ -5,6 +5,7 @@ from django.db import models
 class TaxonomyType(Enum):
     TAG = "tag"
     CATEGORY = "category"  # content subject
+    SUBJECT = "TEST"
 
 
 class Term(models.Model):
