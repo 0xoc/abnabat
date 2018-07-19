@@ -37,14 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shop.apps.ShopConfig',
     'inventory.apps.InventoryConfig',
     'delivery.apps.DeliveryConfig',
     'payment.apps.PaymentConfig',
     'retailer.apps.RetailerConfig',
-    'user_management',
+    'user_management.apps.UserManagementConfig',
+    'taxonomy.apps.TaxonomyConfig',
     'rest_framework',
-    'shop',
-    'taxonomy'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static_cdn/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media_cdn/')
