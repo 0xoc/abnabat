@@ -15,30 +15,15 @@ class ProductImageMetaSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    fields = ProductMetaSerializer(many=True)
+    CharFields = ProductMetaSerializer(many=True)
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'fields', 'price']
+        fields = ['id', 'name', 'CharFields', 'price']
 
     def create(self, data):
-        fields = data.pop('fields')
+        char_fields = data.pop('CharFields')
         product = Product.objects.create(**data)
-        for field in fields:
-            newField = Field.objects.create(**field)
-            product.fields.add(newField)
+        for char_field in char_fields:
+            new_char_field = ProductMeta.objects.create(**char_field,product=product)
         return product
-
-    def update(self, instance, data):
-        instance.name = data.get('name', instance.name)
-        instance.price = data.get('price', instance.price)
-        fields = data.pop('fields')
-        i = 0
-        for field in instance.fields.all():
-            field.key = fields[i].get('key', field.key)
-            field.value = fields[i].get('value', field.value)
-            field.field_type = fields[i].get('field_type', field.field_type)
-            field.save()
-            i += 1
-        instance.save()
-        return instance
