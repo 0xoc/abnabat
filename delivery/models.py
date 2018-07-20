@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 import user_management.models
-import inventory
+from shop.models import Product
 # Create your models here.
 
 class Package(models.Model):
     client = models.ForeignKey(user_management.models.Client,on_delete=models.CASCADE)
-    products = models.ManyToManyField(inventory.models.Product)
+    products = models.ManyToManyField(Product)
 
 class DeliveryPackage(models.Model):
     package = models.ForeignKey(Package,on_delete=models.CASCADE)
